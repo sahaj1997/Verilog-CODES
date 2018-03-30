@@ -1,0 +1,88 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_003edd00 .scope module, "tb_bcdToGrey" "tb_bcdToGrey" 2 3;
+ .timescale 0 0;
+v01fb0cc8_0 .var "A", 3 0;
+v01fb0d20_0 .net "e", 3 0, L_01fb0f88;  1 drivers
+S_003e3670 .scope module, "btog" "bcdtogrey" 2 6, 3 1 0, S_003edd00;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "A"
+    .port_info 1 /OUTPUT 4 "e"
+L_003ecf50 .functor XOR 1, L_01fb0d78, L_01fb0dd0, C4<0>, C4<0>;
+L_003ecf98 .functor XOR 1, L_01fb0e28, L_01fb0e80, C4<0>, C4<0>;
+L_003ecfe0 .functor OR 1, L_01fb0ed8, L_01fb0f30, C4<0>, C4<0>;
+L_003ed028 .functor BUF 1, L_01fb0fe0, C4<0>, C4<0>, C4<0>;
+v003ea7a8_0 .net "A", 3 0, v01fb0cc8_0;  1 drivers
+v003e3740_0 .net *"_s0", 0 0, L_003ecf50;  1 drivers
+v003e3798_0 .net *"_s11", 0 0, L_01fb0e80;  1 drivers
+v003e37f0_0 .net *"_s12", 0 0, L_003ecfe0;  1 drivers
+v003ed6f0_0 .net *"_s15", 0 0, L_01fb0ed8;  1 drivers
+v003ed748_0 .net *"_s17", 0 0, L_01fb0f30;  1 drivers
+v003ed7a0_0 .net *"_s18", 0 0, L_003ed028;  1 drivers
+v003ed7f8_0 .net *"_s22", 0 0, L_01fb0fe0;  1 drivers
+v003ed850_0 .net *"_s3", 0 0, L_01fb0d78;  1 drivers
+v003ed8a8_0 .net *"_s5", 0 0, L_01fb0dd0;  1 drivers
+v003ed900_0 .net *"_s6", 0 0, L_003ecf98;  1 drivers
+v003ed958_0 .net *"_s9", 0 0, L_01fb0e28;  1 drivers
+v01fb0c70_0 .net "e", 3 0, L_01fb0f88;  alias, 1 drivers
+L_01fb0d78 .part v01fb0cc8_0, 0, 1;
+L_01fb0dd0 .part v01fb0cc8_0, 1, 1;
+L_01fb0e28 .part v01fb0cc8_0, 2, 1;
+L_01fb0e80 .part v01fb0cc8_0, 1, 1;
+L_01fb0ed8 .part v01fb0cc8_0, 3, 1;
+L_01fb0f30 .part v01fb0cc8_0, 2, 1;
+L_01fb0f88 .concat8 [ 1 1 1 1], L_003ecf50, L_003ecf98, L_003ecfe0, L_003ed028;
+L_01fb0fe0 .part v01fb0cc8_0, 3, 1;
+    .scope S_003edd00;
+T_0 ;
+    %vpi_call 2 9 "$monitor", " ", $time, " Input=%b , Output = %b ", v01fb0cc8_0, v01fb0d20_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 7, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 8, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %delay 5, 0;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v01fb0cc8_0, 0, 4;
+    %end;
+    .thread T_0;
+    .scope S_003edd00;
+T_1 ;
+    %vpi_call 2 24 "$dumpfile", "out.vcd" {0 0 0};
+    %vpi_call 2 25 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_bcdToFrey.v";
+    "./bcdToGrey.v";

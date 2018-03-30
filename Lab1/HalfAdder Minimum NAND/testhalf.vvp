@@ -1,0 +1,62 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001e09830 .scope module, "testhalf" "testhalf" 2 3;
+ .timescale 0 0;
+v0000000001e5abc0_0 .var "a", 0 0;
+v0000000001e5ac60_0 .var "b", 0 0;
+v0000000001e5ad00_0 .net "c", 0 0, L_0000000001e5c010;  1 drivers
+v0000000001e5ada0_0 .net "s", 0 0, L_0000000001e5bfa0;  1 drivers
+S_000000000082aa50 .scope module, "h1" "halfadder" 2 8, 3 1 0, S_0000000001e09830;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s"
+    .port_info 1 /OUTPUT 1 "c"
+    .port_info 2 /INPUT 1 "a"
+    .port_info 3 /INPUT 1 "b"
+L_0000000001e5ae40 .functor NAND 1, v0000000001e5abc0_0, v0000000001e5ac60_0, C4<1>, C4<1>;
+L_0000000001e5bec0 .functor NAND 1, v0000000001e5abc0_0, L_0000000001e5ae40, C4<1>, C4<1>;
+L_0000000001e5bf30 .functor NAND 1, v0000000001e5ac60_0, L_0000000001e5ae40, C4<1>, C4<1>;
+L_0000000001e5bfa0 .functor NAND 1, L_0000000001e5bec0, L_0000000001e5bf30, C4<1>, C4<1>;
+L_0000000001e5c010 .functor NAND 1, L_0000000001e5ae40, L_0000000001e5ae40, C4<1>, C4<1>;
+v0000000001e099b0_0 .net "a", 0 0, v0000000001e5abc0_0;  1 drivers
+v0000000001e09a50_0 .net "b", 0 0, v0000000001e5ac60_0;  1 drivers
+v000000000082abd0_0 .net "c", 0 0, L_0000000001e5c010;  alias, 1 drivers
+v000000000082ac70_0 .net "s", 0 0, L_0000000001e5bfa0;  alias, 1 drivers
+v000000000082ad10_0 .net "u1", 0 0, L_0000000001e5ae40;  1 drivers
+v000000000082adb0_0 .net "u2", 0 0, L_0000000001e5bec0;  1 drivers
+v0000000001e5ab20_0 .net "u3", 0 0, L_0000000001e5bf30;  1 drivers
+    .scope S_0000000001e09830;
+T_0 ;
+    %vpi_call 2 12 "$monitor", $time, " a=%b, b=%b, s=%b, c=%b", v0000000001e5abc0_0, v0000000001e5ac60_0, v0000000001e5ada0_0, v0000000001e5ad00_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001e5abc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001e5ac60_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001e5abc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001e5ac60_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001e5abc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001e5ac60_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001e5abc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001e5ac60_0, 0, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testhalf.v";
+    "./halfadder.v";

@@ -1,0 +1,81 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000000a7c7d0 .scope module, "testfull" "testfull" 2 3;
+ .timescale 0 0;
+v0000000001f24b30_0 .var "a", 0 0;
+v0000000001f24e50_0 .var "b", 0 0;
+v0000000001f25030_0 .var "cin", 0 0;
+v0000000001f253f0_0 .net "cout", 0 0, L_0000000001f275d0;  1 drivers
+v0000000001f255d0_0 .net "s", 0 0, L_0000000001f27870;  1 drivers
+S_0000000001e92f70 .scope module, "f1" "fulladder" 2 8, 3 1 0, S_0000000000a7c7d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s"
+    .port_info 1 /OUTPUT 1 "cout"
+    .port_info 2 /INPUT 1 "a"
+    .port_info 3 /INPUT 1 "b"
+    .port_info 4 /INPUT 1 "cin"
+L_0000000001f25ee0 .functor NAND 1, v0000000001f24b30_0, v0000000001f24e50_0, C4<1>, C4<1>;
+L_0000000001f25f50 .functor NAND 1, v0000000001f24b30_0, L_0000000001f25ee0, C4<1>, C4<1>;
+L_0000000001f25fc0 .functor NAND 1, L_0000000001f25ee0, v0000000001f24e50_0, C4<1>, C4<1>;
+L_0000000001f26030 .functor NAND 1, L_0000000001f25f50, L_0000000001f25fc0, C4<1>, C4<1>;
+L_0000000001f260a0 .functor NAND 1, L_0000000001f26030, v0000000001f25030_0, C4<1>, C4<1>;
+L_0000000001f26110 .functor NAND 1, L_0000000001f260a0, L_0000000001f26030, C4<1>, C4<1>;
+L_0000000001f27480 .functor NAND 1, v0000000001f25030_0, L_0000000001f260a0, C4<1>, C4<1>;
+L_0000000001f27870 .functor NAND 1, L_0000000001f26110, L_0000000001f27480, C4<1>, C4<1>;
+L_0000000001f275d0 .functor NAND 1, L_0000000001f260a0, L_0000000001f25ee0, C4<1>, C4<1>;
+v0000000001e93bf0_0 .net "a", 0 0, v0000000001f24b30_0;  1 drivers
+v0000000001ec9f20_0 .net "b", 0 0, v0000000001f24e50_0;  1 drivers
+v0000000000a7c950_0 .net "cin", 0 0, v0000000001f25030_0;  1 drivers
+v0000000000a7c9f0_0 .net "cout", 0 0, L_0000000001f275d0;  alias, 1 drivers
+v0000000001e930f0_0 .net "s", 0 0, L_0000000001f27870;  alias, 1 drivers
+v0000000001e93190_0 .net "u1", 0 0, L_0000000001f25ee0;  1 drivers
+v0000000001e93230_0 .net "u2", 0 0, L_0000000001f25f50;  1 drivers
+v0000000001e932d0_0 .net "u3", 0 0, L_0000000001f25fc0;  1 drivers
+v0000000001f24d10_0 .net "u4", 0 0, L_0000000001f26030;  1 drivers
+v0000000001f25350_0 .net "u5", 0 0, L_0000000001f260a0;  1 drivers
+v0000000001f24db0_0 .net "u6", 0 0, L_0000000001f26110;  1 drivers
+v0000000001f24a90_0 .net "u7", 0 0, L_0000000001f27480;  1 drivers
+    .scope S_0000000000a7c7d0;
+T_0 ;
+    %vpi_call 2 12 "$monitor", $time, " a=%b, b=%b, cin=%b, s=%b, cout=%b", v0000000001f24b30_0, v0000000001f24e50_0, v0000000001f25030_0, v0000000001f255d0_0, v0000000001f253f0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f24b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f24e50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f25030_0, 0, 1;
+    %delay 25, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f24b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f24e50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f25030_0, 0, 1;
+    %delay 25, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f24b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f24e50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f25030_0, 0, 1;
+    %delay 25, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f24b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001f24e50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001f25030_0, 0, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testfull.v";
+    "./fulladder.v";

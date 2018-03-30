@@ -1,0 +1,70 @@
+$date
+	Tue Aug 22 16:16:04 2017
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_bcdToGrey $end
+$var wire 4 ! e [3:0] $end
+$var reg 4 " A [3:0] $end
+$scope module btog $end
+$var wire 4 # A [3:0] $end
+$var wire 4 $ e [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 $
+b0 #
+b0 "
+b0 !
+$end
+#5
+b1 !
+b1 $
+b1 "
+b1 #
+#10
+b11 !
+b11 $
+b10 "
+b10 #
+#15
+b10 !
+b10 $
+b11 "
+b11 #
+#20
+b110 !
+b110 $
+b100 "
+b100 #
+#25
+b111 !
+b111 $
+b101 "
+b101 #
+#30
+b101 !
+b101 $
+b110 "
+b110 #
+#35
+b100 !
+b100 $
+b111 "
+b111 #
+#40
+b1100 !
+b1100 $
+b1000 "
+b1000 #
+#45
+b1101 !
+b1101 $
+b1001 "
+b1001 #
